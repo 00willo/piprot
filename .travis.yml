@@ -9,11 +9,27 @@ python:
 matrix:
   include:
     - python: 3.7
-      env: TOXENV=py37
+      env:
+        - TOXENV=py37
+        - REQUESTS_VERSION=2.3.0
+      dist: xenial      # required for Python 3.7 (travis-ci/travis-ci#9069)
+      sudo: required    # required for Python 3.7 (travis-ci/travis-ci#9069)
+    - python: 3.7
+      env:
+        - TOXENV=py37
+        - REQUESTS_VERSION=2.4.3
       dist: xenial      # required for Python 3.7 (travis-ci/travis-ci#9069)
       sudo: required    # required for Python 3.7 (travis-ci/travis-ci#9069)
     - python: nightly
-      env: TOXENV=py38
+      env:
+        - TOXENV=py38
+        - REQUESTS_VERSION=2.3.0
+      dist: xenial      # required for Python 3.8 (travis-ci/travis-ci#9069)
+      sudo: required    # required for Python 3.8 (travis-ci/travis-ci#9069)
+    - python: nightly
+      env:
+        - TOXENV=py38
+        - REQUESTS_VERSION=2.4.3
       dist: xenial      # required for Python 3.8 (travis-ci/travis-ci#9069)
       sudo: required    # required for Python 3.8 (travis-ci/travis-ci#9069)
   allow_failures:
